@@ -3,256 +3,434 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Portfolio | Developer & Artist</title>
+    <title>Ahmed Ajlan Abdul Jaleel | Multidisciplinary Creative & Engineer</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- AOS (Animate On Scroll) CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts: Space Grotesk for Brutal Modernist Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* Custom floating icon bubble style with modern glow */
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0A0A0B;
+            color: #F3F4F6;
+            overflow-x: hidden;
+        }
+
+        /* Continuous ambient floating animation */
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(1deg); }
+        }
+        @keyframes float-reverse {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(14px) rotate(-1.5deg); }
+        }
+
+        .animate-float {
+            animation: float-slow 6s ease-in-out infinite;
+        }
+        .animate-float-alt {
+            animation: float-reverse 7s ease-in-out infinite;
+        }
+
+        /* Brutal Card Tilt & Shadow Styling */
+        .brutal-card {
+            background: #121214;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+        .brutal-card:hover {
+            transform: translateY(-6px) rotate(-0.5deg);
+            border-color: #CCFF00;
+            box-shadow: 6px 6px 0px #CCFF00;
+        }
+
+        /* Brutal Button Hover Effects */
+        .btn-brutal-primary {
+            background: #CCFF00;
+            color: #000000;
+            border: 2px solid #CCFF00;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            box-shadow: 4px 4px 0px #FFFFFF;
+        }
+        .btn-brutal-primary:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #FF2E93;
+            background: #FF2E93;
+            border-color: #FF2E93;
+            color: #FFFFFF;
+        }
+
+        .btn-brutal-secondary {
+            background: transparent;
+            color: #FFFFFF;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .btn-brutal-secondary:hover {
+            border-color: #00F0FF;
+            color: #00F0FF;
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px #00F0FF;
+        }
+
+        /* Custom Floating Contact Bubbles */
         .bubble {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background-color: rgba(31, 41, 55, 0.85);
-            backdrop-filter: blur(8px);
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: #18181B;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.25s ease;
+            box-shadow: 3px 3px 0px rgba(255, 255, 255, 0.1);
         }
         .bubble:hover {
-            transform: scale(1.15) translateY(-2px);
-            background-color: #3B82F6; /* Modern Tailwind Blue */
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+            transform: scale(1.1) translate(-2px, -2px);
+            border-color: #CCFF00;
+            box-shadow: 4px 4px 0px #CCFF00;
+            background: #27272A;
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased selection:bg-blue-500 selection:text-white">
+<body class="selection:bg-[#CCFF00] selection:text-black">
 
-    <!-- Modern Glassmorphism Navigation Bar -->
-    <nav class="bg-slate-900/80 backdrop-blur-md border-b border-slate-800 fixed w-full z-50 top-0 left-0 transition-all duration-300">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#welcome" class="text-xl font-extrabold bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent tracking-wide">
-                PORTFOLIO.
+    <!-- Top Brutal Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-[#0A0A0B]/90 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-lg md:text-xl font-bold tracking-tighter uppercase flex items-center gap-2">
+                <span class="w-3 h-3 bg-[#CCFF00] inline-block animate-pulse"></span>
+                Ahmed Ajlan Abdul Jaleel
             </a>
-            <div class="space-x-8 font-medium text-sm md:text-base">
-                <a href="#welcome" class="text-slate-300 hover:text-blue-400 transition-colors">Home</a>
-                <a href="#about" class="text-slate-300 hover:text-blue-400 transition-colors">About</a>
-                <a href="#projects" class="text-slate-300 hover:text-blue-400 transition-colors">Projects</a>
-                <a href="#gallery" class="text-slate-300 hover:text-blue-400 transition-colors">Gallery</a>
+            <div class="hidden md:flex items-center space-x-8 text-sm uppercase tracking-widest font-semibold text-gray-400">
+                <a href="#about" class="hover:text-[#CCFF00] transition-colors">01 // About</a>
+                <a href="#services" class="hover:text-[#CCFF00] transition-colors">02 // Expertise</a>
+                <a href="#projects" class="hover:text-[#CCFF00] transition-colors">03 // Engineering</a>
+                <a href="#gallery" class="hover:text-[#CCFF00] transition-colors">04 // Visual Art</a>
+                <a href="#contact" class="hover:text-[#CCFF00] transition-colors">05 // Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Welcome / Hero Screen -->
-    <section id="welcome" class="min-h-screen flex items-center justify-center bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 pt-16 relative overflow-hidden">
-        <!-- Subtle background glow effect -->
-        <div class="absolute w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none -top-10 -left-10"></div>
-        <div class="absolute w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none bottom-10 right-10"></div>
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen pt-28 pb-16 px-6 flex items-center justify-center relative overflow-hidden border-b border-white/10">
+        <!-- Ambient Decorative Grid & Floating Geometry -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-[#CCFF00]/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 -right-24 w-96 h-96 bg-[#FF2E93]/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Typography Column -->
+            <div class="lg:col-span-7 z-10" data-aos="fade-right" data-aos-duration="1000">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/15 text-xs font-semibold uppercase tracking-widest text-[#CCFF00] mb-6">
+                    <span class="w-2 h-2 rounded-full bg-[#CCFF00]"></span>
+                    Multidisciplinary Creative & Engineer
+                </div>
 
-        <div class="text-center px-4 max-w-4xl mx-auto z-10" data-aos="fade-up" data-aos-duration="1000">
-            <span class="text-blue-400 font-semibold tracking-wider uppercase text-sm">Welcome to my universe</span>
-            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mt-3 leading-tight">
-                Crafting <span class="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent">Digital Experiences</span> & Art.
-            </h1>
-            <p class="mt-6 text-lg md:text-2xl font-light text-slate-400 max-w-2xl mx-auto">
-                I am a Frontend Developer & Traditional Artist blending technical precision with creative storytelling.
-            </p>
-            <div class="mt-10 flex justify-center gap-4">
-                <a href="#projects" class="px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-full transition-all shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-0.5">
-                    View Work
-                </a>
-                <a href="#about" class="px-8 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium rounded-full border border-slate-700 transition-all hover:-translate-y-0.5">
-                    About Me
-                </a>
+                <h1 class="text-5xl sm:text-6xl xl:text-7xl font-extrabold uppercase tracking-tight leading-[0.95]">
+                    Ahmed Ajlan <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-gray-500">Abdul Jaleel.</span>
+                </h1>
+
+                <!-- Multidisciplinary Marquee Tagline -->
+                <div class="mt-6 flex flex-wrap gap-2 text-xs uppercase tracking-wider font-bold text-gray-300">
+                    <span class="px-3 py-1 bg-white/10 border border-white/10">Flutter Developer</span>
+                    <span class="px-3 py-1 bg-white/10 border border-white/10">UI/UX Designer</span>
+                    <span class="px-3 py-1 bg-white/10 border border-white/10">Frontend Engineer</span>
+                    <span class="px-3 py-1 bg-white/10 border border-white/10">Visual Artist</span>
+                    <span class="px-3 py-1 bg-white/10 border border-white/10">Graphic Designer</span>
+                </div>
+
+                <p class="mt-6 text-base sm:text-lg text-gray-400 max-w-xl font-light leading-relaxed">
+                    Bridging the gap between brutalist digital aesthetics, cross-platform mobile engineering, and classical visual realism. I build high-impact applications and craft unforgettable visual identities.
+                </p>
+
+                <div class="mt-8 flex flex-wrap items-center gap-4">
+                    <a href="#projects" class="btn-brutal-primary px-8 py-3.5 text-sm uppercase tracking-wider">
+                        Explore Works
+                    </a>
+                    <a href="#gallery" class="btn-brutal-secondary px-8 py-3.5 text-sm uppercase tracking-wider">
+                        Art Showcase
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Profile Floating Card Area -->
+            <div class="lg:col-span-5 flex justify-center lg:justify-end" data-aos="zoom-in-up" data-aos-duration="1000">
+                <div class="relative w-full max-w-md animate-float">
+                    <!-- Brutal Frame Container -->
+                    <div class="brutal-card p-4 rounded-2xl bg-gradient-to-b from-neutral-900 to-black">
+                        <div class="aspect-4/5 w-full overflow-hidden rounded-xl bg-neutral-800 relative">
+                            <!-- REPLACE SRC: Your Profile Picture Link -->
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Ahmed Ajlan Abdul Jaleel" class="w-full h-full object-cover filter grayscale contrast-125 hover:grayscale-0 transition-all duration-700">
+                            
+                            <!-- Floating Badge -->
+                            <div class="absolute bottom-4 left-4 right-4 bg-black/80 backdrop-blur-md border border-white/20 p-3 rounded-lg">
+                                <p class="text-xs font-mono uppercase text-[#00F0FF]">// STATUS: AVAILABLE FOR WORK</p>
+                                <p class="text-sm font-bold mt-0.5">Ahmed Ajlan A. J.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Decorative Floating Geometry Behind Profile -->
+                    <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-[#FF2E93] border-2 border-white -z-10 animate-float-alt"></div>
+                    <div class="absolute -top-6 -left-6 w-16 h-16 bg-[#CCFF00] border-2 border-black -z-10 animate-float"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Expertise & Services Array -->
+    <section id="services" class="py-24 px-6 border-b border-white/10 bg-[#0E0E11]">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16" data-aos="fade-up">
+                <div>
+                    <span class="text-xs uppercase font-mono tracking-widest text-[#00F0FF]">// 01. CAPABILITIES</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold uppercase mt-2">Core Competencies</h2>
+                </div>
+                <p class="text-gray-400 max-w-md mt-4 md:mt-0 text-sm">
+                    A holistic blend of software architecture, interface design, and artistic execution.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Skill Card 1 -->
+                <div class="brutal-card p-8 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-[#CCFF00] font-mono text-xs font-bold">// 01</div>
+                    <h3 class="text-2xl font-bold uppercase mt-3">Flutter & Mobile Dev</h3>
+                    <p class="mt-3 text-gray-400 text-sm leading-relaxed">
+                        End-to-end multi-platform application development with Flutter and Dart. Custom animations, responsive layouts, and robust backend integrations.
+                    </p>
+                </div>
+
+                <!-- Skill Card 2 -->
+                <div class="brutal-card p-8 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-[#FF2E93] font-mono text-xs font-bold">// 02</div>
+                    <h3 class="text-2xl font-bold uppercase mt-3">UI/UX & Frontend</h3>
+                    <p class="mt-3 text-gray-400 text-sm leading-relaxed">
+                        Architecting high-conversion, brutalist, and modern web interfaces using Tailwind CSS, HTML5, JavaScript, and modern design systems.
+                    </p>
+                </div>
+
+                <!-- Skill Card 3 -->
+                <div class="brutal-card p-8 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-[#00F0FF] font-mono text-xs font-bold">// 03</div>
+                    <h3 class="text-2xl font-bold uppercase mt-3">Visual Art & Graphics</h3>
+                    <p class="mt-3 text-gray-400 text-sm leading-relaxed">
+                        Traditional realism, digital illustration, and brand graphic identity. Translating tangible artistic texture into digital products.
+                    </p>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-32 bg-slate-950 border-t border-slate-900">
-        <div class="container mx-auto px-6 max-w-4xl text-center" data-aos="fade-up" data-aos-duration="800">
-            <h2 class="text-3xl md:text-5xl font-bold tracking-tight">About Me</h2>
-            <div class="w-20 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
-            <p class="mt-8 text-lg md:text-xl text-slate-400 leading-relaxed font-light">
-                I build responsive, beautifully detailed web applications while maintaining a deep passion for fine art and realism. Whether writing clean modern code or putting pen to canvas, my focus is always on patience, structure, and captivating visual craftsmanship.
-            </p>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-32 bg-slate-900/50 border-t border-slate-900">
-        <div class="container mx-auto px-6">
-            <div class="text-center max-w-2xl mx-auto" data-aos="fade-up">
-                <h2 class="text-3xl md:text-5xl font-bold tracking-tight">Featured Projects</h2>
-                <div class="w-20 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
-                <p class="mt-4 text-slate-400">A showcase of interactive web applications and technical solutions.</p>
+    <!-- Featured Engineering Projects -->
+    <section id="projects" class="py-24 px-6 border-b border-white/10">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16" data-aos="fade-up">
+                <span class="text-xs uppercase font-mono tracking-widest text-[#CCFF00]">// 02. SOFTWARE WORK</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold uppercase mt-2">Featured Engineering</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                
                 <!-- Project 1 -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition-all duration-300 group flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                <div class="brutal-card rounded-xl overflow-hidden flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
                     <div>
-                        <div class="overflow-hidden aspect-video">
+                        <div class="aspect-16/9 w-full overflow-hidden bg-neutral-800 border-b border-white/10 relative">
                             <!-- REPLACE SRC: Your App / Screenshot Image Link -->
-                            <img src="https://picsum.photos/seed/tech1/600/400" alt="Project 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1000&q=80" alt="Flutter Mobile Ecosystem" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                            <span class="absolute top-4 right-4 bg-black/80 border border-white/20 text-xs px-3 py-1 font-mono uppercase text-[#CCFF00]">Flutter / Mobile</span>
                         </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors">Project 1: Dynamic Web App</h3>
-                            <!-- QUOTE DESCRIBING LINK -->
-                            <blockquote class="mt-3 text-xs italic text-blue-400/90 border-l-2 border-blue-500 pl-3">
-                                "First, solve the problem. Then, write the code." — John Johnson
-                            </blockquote>
-                            <p class="mt-3 text-sm text-slate-400 leading-relaxed">
-                                A responsive frontend architecture engineered for speed, clean UI design, and seamless user interaction.
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold uppercase">Cross-Platform Application Core</h3>
+                            <p class="mt-3 text-gray-400 text-sm leading-relaxed">
+                                A scalable mobile architecture built using Flutter, featuring real-time data synchronization, custom canvas renders, and fluid gesture handling.
                             </p>
+                            <!-- QUOTE DESCRIBING LINK -->
+                            <blockquote class="mt-4 text-xs font-mono italic text-gray-500 border-l-2 border-[#CCFF00] pl-3">
+                                "Code is like humor. When you have to explain it, it's bad." — Cory House
+                            </blockquote>
                         </div>
+                    </div>
+                    <div class="px-8 pb-8 flex items-center gap-4">
+                        <span class="text-xs font-mono text-gray-400">// DART</span>
+                        <span class="text-xs font-mono text-gray-400">// FIREBASE</span>
+                        <span class="text-xs font-mono text-gray-400">// TAILWIND</span>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition-all duration-300 group flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                <div class="brutal-card rounded-xl overflow-hidden flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
                     <div>
-                        <div class="overflow-hidden aspect-video">
+                        <div class="aspect-16/9 w-full overflow-hidden bg-neutral-800 border-b border-white/10 relative">
                             <!-- REPLACE SRC: Your App / Screenshot Image Link -->
-                            <img src="https://picsum.photos/seed/code2/600/400" alt="Project 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80" alt="Brutalist Design System" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                            <span class="absolute top-4 right-4 bg-black/80 border border-white/20 text-xs px-3 py-1 font-mono uppercase text-[#FF2E93]">UI / UX Design</span>
                         </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors">Project 2: Interactive Dashboard</h3>
-                            <!-- QUOTE DESCRIBING LINK -->
-                            <blockquote class="mt-3 text-xs italic text-blue-400/90 border-l-2 border-blue-500 pl-3">
-                                "Simplicity is the soul of efficiency." — Austin Freeman
-                            </blockquote>
-                            <p class="mt-3 text-sm text-slate-400 leading-relaxed">
-                                A high-performance data presentation interface built with a focus on intuitive navigation and clarity.
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold uppercase">Enterprise Dashboard Design System</h3>
+                            <p class="mt-3 text-gray-400 text-sm leading-relaxed">
+                                High-density data visualization system designed with accessibility and brutalist efficiency at its core. Engineered for rapid interface scalability.
                             </p>
+                            <!-- QUOTE DESCRIBING LINK -->
+                            <blockquote class="mt-4 text-xs font-mono italic text-gray-500 border-l-2 border-[#FF2E93] pl-3">
+                                "Simplicity is about subtracting the obvious and adding the meaningful." — John Maeda
+                            </blockquote>
                         </div>
+                    </div>
+                    <div class="px-8 pb-8 flex items-center gap-4">
+                        <span class="text-xs font-mono text-gray-400">// FIGMA</span>
+                        <span class="text-xs font-mono text-gray-400">// TAILWIND</span>
+                        <span class="text-xs font-mono text-gray-400">// FRONTEND</span>
                     </div>
                 </div>
 
-                <!-- Project 3 -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition-all duration-300 group flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
-                    <div>
-                        <div class="overflow-hidden aspect-video">
-                            <!-- REPLACE SRC: Your App / Screenshot Image Link -->
-                            <img src="https://picsum.photos/seed/web3/600/400" alt="Project 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors">Project 3: Creative Platform</h3>
-                            <!-- QUOTE DESCRIBING LINK -->
-                            <blockquote class="mt-3 text-xs italic text-blue-400/90 border-l-2 border-blue-500 pl-3">
-                                "Design is not just what it looks like and feels like. Design is how it works." — Steve Jobs
-                            </blockquote>
-                            <p class="mt-3 text-sm text-slate-400 leading-relaxed">
-                                Combining custom animations and modern layout principles to deliver an immersive digital showcase.
-                            </p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-32 bg-slate-950 border-t border-slate-900">
-        <div class="container mx-auto px-6">
-            <div class="text-center max-w-2xl mx-auto" data-aos="fade-up">
-                <h2 class="text-3xl md:text-5xl font-bold tracking-tight">Art Gallery</h2>
-                <div class="w-20 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
-                <p class="mt-4 text-slate-400">A collection of expressive artwork, detailed studies, and creative pieces.</p>
+    <!-- Visual Art & Graphic Showcase -->
+    <section id="gallery" class="py-24 px-6 border-b border-white/10 bg-[#0E0E11]">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16" data-aos="fade-up">
+                <div>
+                    <span class="text-xs uppercase font-mono tracking-widest text-[#FF2E93]">// 03. ART GALLERY</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold uppercase mt-2">Visual Art & Realism</h2>
+                </div>
+                <p class="text-gray-400 max-w-md mt-4 md:mt-0 text-sm">
+                    Selected fine art studies, sketches, and graphic illustrations created by Ahmed Ajlan.
+                </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
                 <!-- Art Piece 1 -->
-                <div class="bg-slate-900/60 border border-slate-800/80 p-4 rounded-2xl group hover:border-slate-700 transition-all duration-300" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="overflow-hidden rounded-xl aspect-4/3">
+                <div class="brutal-card p-4 rounded-xl group" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="aspect-4/3 w-full overflow-hidden rounded-lg bg-neutral-800 relative">
                         <!-- REPLACE SRC: Your Artwork Image Link -->
-                        <img src="https://picsum.photos/seed/art1/600/600" alt="Art 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80" alt="Traditional Canvas Work" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
-                    <div class="mt-4 px-2">
-                        <h3 class="font-bold text-lg text-slate-200 group-hover:text-blue-400 transition-colors">Study in Contrast</h3>
-                        <!-- QUOTE DESCRIBING LINK -->
-                        <blockquote class="mt-2 text-xs italic text-slate-400 border-l-2 border-slate-600 pl-3">
+                    <div class="mt-4">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-bold uppercase text-lg">Portrait Study #01</h3>
+                            <span class="text-xs font-mono text-[#CCFF00]">TRADITIONAL</span>
+                        </div>
+                        <blockquote class="mt-2 text-xs font-mono italic text-gray-400 border-l border-white/20 pl-2">
                             "Every artist was first an amateur." — Ralph Waldo Emerson
                         </blockquote>
                     </div>
                 </div>
 
                 <!-- Art Piece 2 -->
-                <div class="bg-slate-900/60 border border-slate-800/80 p-4 rounded-2xl group hover:border-slate-700 transition-all duration-300" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="overflow-hidden rounded-xl aspect-4/3">
+                <div class="brutal-card p-4 rounded-xl group" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="aspect-4/3 w-full overflow-hidden rounded-lg bg-neutral-800 relative">
                         <!-- REPLACE SRC: Your Artwork Image Link -->
-                        <img src="https://picsum.photos/seed/art2/600/600" alt="Art 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80" alt="Abstract Graphic Art" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
-                    <div class="mt-4 px-2">
-                        <h3 class="font-bold text-lg text-slate-200 group-hover:text-blue-400 transition-colors">Realism Study</h3>
-                        <!-- QUOTE DESCRIBING LINK -->
-                        <blockquote class="mt-2 text-xs italic text-slate-400 border-l-2 border-slate-600 pl-3">
-                            "Art is the lie that enables us to realize the truth." — Pablo Picasso
+                    <div class="mt-4">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-bold uppercase text-lg">Color & Texture #02</h3>
+                            <span class="text-xs font-mono text-[#FF2E93]">ACRYLIC / MIXED</span>
+                        </div>
+                        <blockquote class="mt-2 text-xs font-mono italic text-gray-400 border-l border-white/20 pl-2">
+                            "Art is not what you see, but what you make others see." — Edgar Degas
                         </blockquote>
                     </div>
                 </div>
 
                 <!-- Art Piece 3 -->
-                <div class="bg-slate-900/60 border border-slate-800/80 p-4 rounded-2xl group hover:border-slate-700 transition-all duration-300" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="overflow-hidden rounded-xl aspect-4/3">
+                <div class="brutal-card p-4 rounded-xl group" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="aspect-4/3 w-full overflow-hidden rounded-lg bg-neutral-800 relative">
                         <!-- REPLACE SRC: Your Artwork Image Link -->
-                        <img src="https://picsum.photos/seed/art3/600/600" alt="Art 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80" alt="Graphic Design Study" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
-                    <div class="mt-4 px-2">
-                        <h3 class="font-bold text-lg text-slate-200 group-hover:text-blue-400 transition-colors">Expressive Detail</h3>
-                        <!-- QUOTE DESCRIBING LINK -->
-                        <blockquote class="mt-2 text-xs italic text-slate-400 border-l-2 border-slate-600 pl-3">
+                    <div class="mt-4">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-bold uppercase text-lg">Visual Identity #03</h3>
+                            <span class="text-xs font-mono text-[#00F0FF]">DIGITAL / UI</span>
+                        </div>
+                        <blockquote class="mt-2 text-xs font-mono italic text-gray-400 border-l border-white/20 pl-2">
                             "Creativity takes courage." — Henri Matisse
                         </blockquote>
                     </div>
                 </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Bold CTA / Contact Section -->
+    <section id="contact" class="py-24 px-6 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+            <span class="text-xs uppercase font-mono tracking-widest text-[#00F0FF]">// 04. GET IN TOUCH</span>
+            <h2 class="text-4xl sm:text-6xl font-extrabold uppercase mt-3 tracking-tight">
+                Let's Build Something <span class="text-[#CCFF00]">Extraordinary.</span>
+            </h2>
+            <p class="mt-4 text-gray-400 max-w-xl mx-auto text-sm sm:text-base font-light">
+                Available for Flutter mobile development, UI/UX consultations, frontend engineering projects, and custom art commissions.
+            </p>
+            <div class="mt-8">
+                <a href="mailto:example@gmail.com" class="btn-brutal-primary inline-block px-10 py-4 text-base uppercase tracking-widest">
+                    Send Direct Message
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 bg-slate-950 border-t border-slate-900 text-center text-slate-500 text-sm">
-        <p>© 2026 Portfolio. Built with passion and clean code.</p>
+    <footer class="py-8 border-t border-white/10 text-center text-xs font-mono uppercase text-gray-500">
+        <p>AHMED AJLAN ABDUL JALEEL // DESIGNED & DEVELOPED WITH BRUTAL PRECISION © 2026</p>
     </footer>
 
-    <!-- Floating Social Media Contact Buttons -->
+    <!-- Floating Social Media Contact Bubbles -->
     <div class="fixed bottom-6 right-6 flex flex-col space-y-3 z-40">
         <div class="bubble" title="LinkedIn">
             <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="w-full h-full flex items-center justify-center">
-                <img src="https://img.icons8.com/ios-filled/20/ffffff/linkedin.png" alt="LinkedIn" />
+                <img src="https://img.icons8.com/ios-filled/22/ffffff/linkedin.png" alt="LinkedIn" />
             </a>
         </div>
         <div class="bubble" title="Instagram">
             <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="w-full h-full flex items-center justify-center">
-                <img src="https://img.icons8.com/ios-filled/20/ffffff/instagram-new.png" alt="Instagram" />
+                <img src="https://img.icons8.com/ios-filled/22/ffffff/instagram-new.png" alt="Instagram" />
             </a>
         </div>
         <div class="bubble" title="Email">
             <a href="mailto:example@gmail.com" class="w-full h-full flex items-center justify-center">
-                <img src="https://img.icons8.com/ios-filled/20/ffffff/gmail.png" alt="Gmail" />
+                <img src="https://img.icons8.com/ios-filled/22/ffffff/gmail.png" alt="Gmail" />
             </a>
         </div>
         <div class="bubble" title="Call">
             <a href="tel:+1234567890" class="w-full h-full flex items-center justify-center">
-                <img src="https://img.icons8.com/ios-filled/20/ffffff/phone.png" alt="Phone" />
+                <img src="https://img.icons8.com/ios-filled/22/ffffff/phone.png" alt="Phone" />
             </a>
         </div>
         <div class="bubble" title="WhatsApp">
             <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" class="w-full h-full flex items-center justify-center">
-                <img src="https://img.icons8.com/ios-filled/20/ffffff/whatsapp.png" alt="WhatsApp" />
+                <img src="https://img.icons8.com/ios-filled/22/ffffff/whatsapp.png" alt="WhatsApp" />
             </a>
         </div>
     </div>
 
-    <!-- AOS (Animate On Scroll) Script Initialization -->
+    <!-- AOS (Animate On Scroll) Initialization -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
-            once: true, // Animations happen only once when scrolling down
-            offset: 80, // Trigger animations slightly before an element hits view
+            once: true,
+            offset: 60,
             easing: 'ease-out-cubic',
         });
     </script>
